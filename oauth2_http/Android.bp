@@ -1,0 +1,14 @@
+java_library_host {
+    name: "google-auth-library-java-oauth2_http",
+    srcs: [
+        "java/**/*.java",
+    ],
+    libs: [
+        "auto_value_annotations",
+        "error_prone_annotations",
+        "google-api-java-client-assembly",
+        "google-auth-library-java-credentials",
+        "guava",
+    ],
+    plugins: ["auto_value_plugin"],
+}
