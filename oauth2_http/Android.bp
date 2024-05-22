@@ -11,4 +11,15 @@ java_library_host {
         "guava",
     ],
     plugins: ["auto_value_plugin"],
+    visibility: [
+        "//external/google-auth-library-java:__subpackages__",
+        "//external/grpc-grpc-java:__subpackages__",
+        "//external/sdk-platform-java:__subpackages__",
+        "//tools/apksig",
+    ],
+    target: {
+        windows: {
+            enabled: true,
+        },
+    },
 }
