@@ -28,3 +28,28 @@ java_library_host {
         },
     },
 }
+
+java_library {
+    name: "google-auth-library-java-oauth2_http-device",
+    srcs: [
+        "java/**/*.java",
+    ],
+    sdk_version: "current",
+    libs: [
+        "auto_value_annotations",
+        "error_prone_annotations",
+        "google-api-java-client-lite",
+        "google-auth-library-java-credentials-device",
+        "guava",
+    ],
+    plugins: ["auto_value_plugin"],
+    visibility: [
+        "//external/google-auth-library-java:__subpackages__",
+        "//test/dts/libs/device/powerperformance/apphelpers",
+    ],
+    errorprone: {
+        javacflags: [
+            "-Xep:DoubleBraceInitialization:WARN",
+        ],
+    },
+}
