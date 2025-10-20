@@ -1,0 +1,60 @@
+package {
+    default_applicable_licenses: ["external_google_auth_library_java_license"],
+}
+
+license {
+    name: "external_google_auth_library_java_license",
+    license_kinds: [
+        "SPDX-license-identifier-BSD-3-Clause",
+    ],
+    license_text: [
+        "LICENSE",
+    ],
+    visibility: [":__subpackages__"],
+}
+
+java_library {
+    name: "google-auth-library-java-credentials",
+    host_supported: true,
+    sdk_version: "current",
+    srcs: [
+        "credentials/java/**/*.java",
+    ],
+    target: {
+        windows: {
+            enabled: true,
+        },
+    },
+}
+
+java_library {
+    name: "google-auth-library-java-oauth2_http",
+    host_supported: true,
+    sdk_version: "current",
+    srcs: [
+        "oauth2_http/java/**/*.java",
+    ],
+    libs: [
+        "auto_value_annotations",
+        "error_prone_annotations",
+        "google-auth-library-java-credentials",
+        "guava",
+    ],
+    plugins: ["auto_value_plugin"],
+    errorprone: {
+        javacflags: [
+            "-Xep:DoubleBraceInitialization:WARN",
+        ],
+    },
+    target: {
+        android: {
+            libs: ["google-api-java-client-lite"],
+        },
+        host: {
+            libs: ["google-api-java-client-assembly"],
+        },
+        windows: {
+            enabled: true,
+        },
+    },
+}
