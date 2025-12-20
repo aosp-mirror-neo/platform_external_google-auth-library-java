@@ -15,6 +15,7 @@ license {
 
 java_library {
     name: "google-auth-library-java-credentials",
+    defaults: ["tradefed_dependency_defaults"],
     host_supported: true,
     sdk_version: "current",
     srcs: [
@@ -29,6 +30,7 @@ java_library {
 
 java_library {
     name: "google-auth-library-java-oauth2_http",
+    defaults: ["tradefed_dependency_defaults"],
     host_supported: true,
     sdk_version: "current",
     srcs: [
